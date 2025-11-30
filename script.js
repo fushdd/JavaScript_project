@@ -1,7 +1,14 @@
 import { load_data, update_data } from './user_info.js'
 import { Game } from './game_class.js'
 
-const difficulty = sessionStorage.getItem('difficulty');
+let difficulty = sessionStorage.getItem('difficulty');
+let player_name = sessionStorage.getItem('name');
+if (!player_name) {
+    window.location.href = './login.html';
+} else if (!difficulty) {
+    window.location.href = './choose_difficulty.html';
+}
+
 let word_num = 0
 let diff_index = 0
 if (difficulty == 'easy') {
@@ -14,7 +21,7 @@ if (difficulty == 'easy') {
     word_num = 10;
     diff_index = 2;
 }
-let player_name = sessionStorage.getItem('name');
+
 
 let all_players_info = await load_data(player_name);
 let player_index = all_players_info.findIndex(d => d.name == player_name);

@@ -1,5 +1,5 @@
 import { generate_song, generate_song_info } from './song_utils.js'
-import { load_data, update_data } from './user_info.js'
+import { load_data } from './user_info.js'
 
 export class Game {
 
