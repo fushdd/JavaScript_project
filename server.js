@@ -60,7 +60,7 @@ app.patch('/update-data/:name', (req, res) => {
  
         // Update the data and write back to the file
         const jsonData = JSON.parse(data);
-        const i = jsonData.findIndex(d => String(d.name) === String(name));
+        const i = jsonData.findIndex(d => d.name === name);
         jsonData[i] = { ...jsonData[i], ...updates};
  
         fs.writeFile('./players.json', JSON.stringify(jsonData, null, 2), (err) => {
