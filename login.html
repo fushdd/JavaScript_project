@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form>
+        <input id="name" type="text" placeholder="Username" required>
+        <input id="password" type="password" placeholder="Password" required>
+        <button type="submit" value="register">Register</button>
+        <button type="submit" value="login">Login</button>
+        <p id="msg"></p>
+    </form>
+
+    <script type="module">
+        import { load_data, add_data, update_data } from './user_info.js';
+
+        try {
+            let user_data = await load_data()
+
+            document.querySelector('form').addEventListener('submit', async (event) => {
+                event.preventDefault()
+                let s_username = document.getElementById('name').value;
+                let s_password = document.getElementById('password').value;
+                let button_clicked = document.activeElement.value;
+                if (button_clicked == 'login') {
+                    let user_info_correct = false;
+                    for (let user of user_data) {
+                        if (s_username == user.name && s_password == user.password) {
+                            user_info_correct = true;
+                            break;
+                        }
+                    };
+                    if (user_info_correct) {
+                        sessionStorage.setItem('name', s_username);
+                        window.location.href = './main.html';
+                    } else {
+                        document.getElementById('msg').textContent = 'Incorrect user information.'
+                    }
+                } else if (button_clicked == 'register') {
+                    let user_exists = false;
+                    for (let user of user_data) {
+                        if (s_username == user.name) {
+                            user_exists = true;
+                            break;
+                        }
+                    }
+                    if (!user_exists) {
+                        sessionStorage.setItem('name', s_username);
+                        await add_data(s_username, s_password);
+                        window.location.href = './main.html';
+                    } else {
+                        document.getElementById('msg').textContent = 'User already exists'
+                    }
+                }
+            })
+        } catch(err) {
+            console.error(err)
+        }
+    </script>
+</body>
+</html>

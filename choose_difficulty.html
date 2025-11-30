@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Choose Difficulty</h1>
+    <div id="options">
+        <button id="easy">Easy</button>
+        <button id="medium">Medium</button>
+        <button id="hard">Hard</button>
+    </div>
+
+    <script>
+        function choose_diff(diff) {
+            sessionStorage.setItem('difficulty', diff);
+            window.location.href = './game.html';
+        }
+
+        document.getElementById('easy').addEventListener('click', () => choose_diff('easy'));
+        document.getElementById('medium').addEventListener('click', () => choose_diff('medium'));
+        document.getElementById('hard').addEventListener('click', () => choose_diff('hard'));
+    </script>
+</body>
+</html>
