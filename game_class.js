@@ -44,7 +44,7 @@ export class Game {
         buttons.forEach((btn, index) => {
             btn.textContent = options[index].join(' — ');
         });
-
+        
         document.getElementById('lyrics').textContent = lyrics;
     }
 

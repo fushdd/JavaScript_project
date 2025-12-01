@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body style="display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 10px 50px;">
+    <table id="easy" border="1">
+        <caption><h1>Easy</h1></caption>
+        <thead>
+            <th>Rank</th>
+            <th>Player</th>
+            <th>High Score</th>
+        </thead>
+        <tbody>
+        </tbody>
+    </table>
+    <table id="medium" border="1">
+        <caption><h1>Medium</h1></caption>
+        <thead>
+            <th>Rank</th>
+            <th>Player</th>
+            <th>High Score</th>
+        </thead>
+        <tbody>
+        </tbody>
+    </table>
+    <table id="hard" border="1">
+        <caption><h1>Hard</h1></caption>
+        <thead>
+            <th>Rank</th>
+            <th>Player</th>
+            <th>High Score</th>
+        </thead>
+        <tbody>
+        </tbody>
+    </table>
+
+    <script type="module">
+        import { load_data } from './user_info.js';
+
+        let all_players = await load_data();
+        let easy_record = [];
+        let medium_record = [];
+        let hard_record = [];
+        all_players.forEach((player) => {
+            easy_record.push([player.high_score[0], player.name]);
+            medium_record.push([player.high_score[1], player.name]);
+            hard_record.push([player.high_score[2], player.name]);
+        });
+        console.log(easy_record, medium_record, hard_record)
+    </script>
+</body>
+</html>

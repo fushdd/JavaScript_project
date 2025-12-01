@@ -3,12 +3,19 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <link rel="stylesheet" href="./login.css" type="text/css">
+    <title>Login Form</title>
 </head>
 <body>
     <form>
+        
+        <img src="./images/jaminc.png" alt="Logo" class="logo">
+        <label for="name">Login</label>
         <input id="name" type="text" placeholder="Username" required>
+        <br>
+        <label for="password">Password</label>
         <input id="password" type="password" placeholder="Password" required>
+        <br>
         <button type="submit" value="register">Register</button>
         <button type="submit" value="login">Login</button>
         <p id="msg"></p>
@@ -60,5 +67,15 @@
             console.error(err)
         }
     </script>
+<footer>
+    <p> <b>&copy;2025 Jam Inc</b></p>
+    <p><i>Contact us</i></p>
+    <div class="social-icons">
+    <a href="https://facebook.com" target="_blank" class="Facebook"><img src="./images/facebook.png"></a>
+    <a href="https://twitter.com" target="_blank" class="X"><img src="./images/xlogo.png"></a>
+    <a href="https://instagram.com" target="_blank" class="I"><img src="./images/instagram.png"></a>
+  </div>
+    
+</footer>
 </body>
 </html>
