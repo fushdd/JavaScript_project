@@ -1,0 +1,20 @@
+h1 {
+    margin-top: 200px;
+    text-align: center;
+}
+
+div#options {
+    display: grid;
+    margin: 100px 100px 0px;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px 50px;
+}
+
+div#options button {
+    padding: 20px;
+}
+
+h2 {
+    text-align: right;
+    margin-right: 20px;
+}
