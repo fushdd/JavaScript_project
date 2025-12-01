@@ -40,6 +40,9 @@
     <script type="module">
         import { load_data } from './user_info.js';
 
+        document.querySelector('table#easy tbody').innerHTML = ''
+        document.querySelector('table#medium tbody').innerHTML = ''
+        document.querySelector('table#hard tbody').innerHTML = ''
         let all_players = await load_data();
         let easy_record = [];
         let medium_record = [];
@@ -49,7 +52,36 @@
             medium_record.push([player.high_score[1], player.name]);
             hard_record.push([player.high_score[2], player.name]);
         });
-        console.log(easy_record, medium_record, hard_record)
+        easy_record.sort((a, b) => b[0] - a[0]);
+        medium_record.sort((a, b) => b[0] - a[0]);
+        hard_record.sort((a, b) => b[0] - a[0]);
+
+        for (let i = 0; i < easy_record.length; i++) {
+            document.querySelector('table#easy tbody').innerHTML += `<tr>
+                <td>${i + 1}</td>
+                <td>${easy_record[i][1]}</td>
+                <td>${easy_record[i][0]}</td>
+            </tr>`;
+            if (i == 4) break;
+        }
+
+        for (let i = 0; i < medium_record.length; i++) {
+            document.querySelector('table#medium tbody').innerHTML += `<tr>
+                <td>${i + 1}</td>
+                <td>${medium_record[i][1]}</td>
+                <td>${medium_record[i][0]}</td>
+            </tr>`;
+            if (i == 4) break;
+        }
+
+        for (let i = 0; i < hard_record.length; i++) {
+            document.querySelector('table#hard tbody').innerHTML += `<tr>
+                <td>${i + 1}</td>
+                <td>${hard_record[i][1]}</td>
+                <td>${hard_record[i][0]}</td>
+            </tr>`;
+            if (i == 4) break;
+        }
     </script>
 </body>
 </html>

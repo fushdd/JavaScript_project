@@ -12,14 +12,14 @@
     "name": "Jane Smith",
     "password": "asdzxc",
     "high_score": [
-      0,
-      0,
-      0
+      23,
+      68,
+      27
     ]
   },
   {
     "name": "Daniil",
-    "password": "fushd",
+    "password": "test_password",
     "high_score": [
       52,
       59,
@@ -27,10 +27,46 @@
     ]
   },
   {
-    "name": "test_name",
-    "password": "test_password",
+    "name": "Jessica",
+    "password": "test_password1",
     "high_score": [
-      0,
+      47,
+      90,
+      48
+    ]
+  },
+  {
+    "name": "Massah",
+    "password": "test_password2",
+    "high_score": [
+      19,
+      67,
+      31
+    ]
+  },
+  {
+    "name": "Ramses",
+    "password": "test_password3",
+    "high_score": [
+      4,
+      40,
+      4
+    ]
+  },
+  {
+    "name": "test_name",
+    "password": "test_password4",
+    "high_score": [
+      72,
+      93,
+      8
+    ]
+  },
+  {
+    "name": "super_new_user",
+    "password": "super_new_password",
+    "high_score": [
+      3,
       0,
       0
     ]
